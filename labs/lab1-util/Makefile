@@ -86,7 +86,7 @@ LD = $(TOOLPREFIX)ld
 OBJCOPY = $(TOOLPREFIX)objcopy
 OBJDUMP = $(TOOLPREFIX)objdump
 
-CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb -gdwarf-2
+CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb -gdwarf-2 -Wno-error=infinite-recursion
 
 ifdef LAB
 LABUPPER = $(shell echo $(LAB) | tr a-z A-Z)
@@ -190,6 +190,7 @@ UPROGS=\
 	$U/_zombie\
   $U/_sleep\
   $U/_pingpong\
+	$U/_primes
 
 ifeq ($(LAB),$(filter $(LAB), lock))
 UPROGS += \
